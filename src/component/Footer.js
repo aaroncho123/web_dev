@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom/client';
 
 function Footer() {
 
+    const footerStyle={margin:"5px"};
+
     let date =  new Date().getFullYear();
 
     return (
-        <footer>
+        <footer style={footerStyle}> 
         {'@ '+ date}
         </footer>
     );

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 
 function Compound() {
 
+    const compoundStyle = {borderStyle: "solid", borderWidth:"2px", borderColor: "black"};
+
     const [principal, setPrincipal] = useState("");
     const [interest, setInterest] = useState("");
     const [time, setTime] = useState("");
@@ -22,10 +24,10 @@ function Compound() {
         setEmptyField(empty);
         if (empty === false) {
             var amount = principal * (1 + interest/100) ** time;
-            amount = Math.round(amount*100)/100;
+            amount = (Math.round(amount*100)/100).toFixed(2);
             
             var interestFromAmount = amount - principal;
-            interestFromAmount = Math.round(amount*100)/100;
+            interestFromAmount = (Math.round(interestFromAmount*100)/100).toFixed(2);
 
             setCompoundAmount(amount);
             setCompoundInterest(interestFromAmount);
@@ -42,6 +44,7 @@ function Compound() {
 
     return (
         <>
+        <div style={compoundStyle}>
         <br/>
         <h2>Compound Interest Tool</h2>
         <form onSubmit={calcCompound}>
@@ -67,6 +70,7 @@ function Compound() {
         }   
 
         {emptyField && <h3> Compound Interest: Inputs are empty </h3>}
+        </div>
         </>
     )
 }

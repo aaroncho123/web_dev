@@ -99,7 +99,7 @@ function About() {
   <VerticalTimeline>
   {timelineElements.map(element => {
 
-    const contentStyle = { background: 'rgb(33, 150, 243)', color: '#fff' };
+    const contentStyle = { background: 'rgb(33, 150, 243)', color: '#8B4513' };
     const arrowStyle = { borderRight: '7px solid  rgb(33, 150, 243)' };
     const iconStyle = { background: 'rgb(33, 150, 243)', color: '#fff' };
 

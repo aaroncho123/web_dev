@@ -26,8 +26,6 @@ const items = [
 
 const imageStyle = {   
     width: 400,
-    height: 300
-
 }
 
 
@@ -68,7 +66,7 @@ function Item(props)
         <>
             <h2>{props.item.name}</h2>            
             <p>{props.item.description}</p>
-            <img src={props.item.image} style={imageStyle}/>
+            <img src={props.item.image} alt={props.item.name} style={imageStyle}/>
         </>
     )
 }
