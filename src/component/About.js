@@ -42,7 +42,7 @@ let timelineElements = [
     location: "Computer Power Institute, Wellington, New Zealand",
     description:
       "Course modules in: Networking, Web development, Linux, Java",
-    date: "August 1991 - 1996",
+    date: "2008 - 2009",
     icon: school,
     },
   {
