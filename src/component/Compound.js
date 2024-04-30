@@ -11,19 +11,21 @@ function Compound() {
     const [compoundAmount, setCompoundAmount] = useState("");
     const [compoundInterest, setCompoundInterest] = useState("");
     const [emptyField, setEmptyField] = useState(true);
+    const [noTimes, setNoTImes] = useState("12");
 
     function calcCompound(event) {
-        //A=P(1 + r)^t
+        //A=P(1 + r/n)^(nt)
         event.preventDefault();
 
         var empty = false;
         if (principal.trim().length === 0 ) empty = true;
         if (interest.trim().length === 0 ) empty = true;
         if (time.trim().length === 0 ) empty = true;
-
+        if (noTimes.trim().length === 0) empty = true;
+ 
         setEmptyField(empty);
         if (empty === false) {
-            var amount = principal * (1 + interest/100) ** time;
+            var amount = principal * (1 + interest/(100*noTimes)) ** (time * noTimes);
             amount = (Math.round(amount*100)/100).toFixed(2);
             
             var interestFromAmount = amount - principal;
@@ -54,6 +56,8 @@ function Compound() {
         <input type="text" value={interest|| ""}placeholder="Enter Interest" onChange={(e)=>{setInterest(e.target.value)}}/>
         <label> Years: </label>
         <input type="text" value={time|| ""} placeholder="Enter Years" onChange={(e)=>{setTime(e.target.value)}}/>
+        <label> No. of times per Year: </label>
+        <input type="text" value={noTimes|| ""} placeholder="Enter No. Timers per Year" onChange={(e)=>{setNoTImes(e.target.value)}}/>
         <br/>
         <div display="flex"   gap="20px">
         <button type="submit">Calculate</button>

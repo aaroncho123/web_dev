@@ -5,32 +5,45 @@ import fpga from "../images/fpga_arty.jpg";
 import beaglebone from "../images/beaglebone.jpg";
 import esp32 from "../images/esp32cam.jpg";
 
-const items = [
-    {
-        name: "Xilinx Arty FPGA board",
-        description: "Need to refresh my VHDL skills ...",
-        image: fpga,
-    },
-    {
-        name: "BeagleBone Black board",
-        description: "Learning Embedded Linux ...",
-        image: beaglebone,
-    },
-    {
-        name: "ESP32CAM",
-        description: "Learning Bluetooth ...",
-        image: esp32,
-    },
-]
-
-
-const imageStyle = {   
-    width: 400,
-}
 
 
 function Hobbies() {
-    
+
+    const items = [
+        {
+            name: "Xilinx Arty FPGA board",
+            description: "Need to refresh my VHDL skills ...",
+            image: fpga,
+            width: 400,
+            height: "auto",
+        },
+        {
+            name: "BeagleBone Black board",
+            description: "Learning Embedded Linux ...",
+            image: beaglebone,
+            width: 400,
+            height: "auto",
+        },
+        {
+            name: "ESP32CAM",
+            description: "Learning Bluetooth ...",
+            image: esp32,
+            width: 400,
+            height: "auto",
+        },
+    ]
+
+    function Item(props)
+    {
+        return (
+            <>
+                <h2>{props.item.name}</h2>            
+                <p>{props.item.description}</p>
+                <img src={props.item.image} alt={props.item.name} width = {props.item.width} height = {props.item.height}/>
+            </>
+        )
+    }
+
     return (
         <>
         <Carousel 
@@ -56,17 +69,6 @@ function Hobbies() {
         >
             { items.map( (item, i) => <Item key={i} item={item} /> )}
         </Carousel>
-        </>
-    )
-}
-
-function Item(props)
-{
-    return (
-        <>
-            <h2>{props.item.name}</h2>            
-            <p>{props.item.description}</p>
-            <img src={props.item.image} alt={props.item.name} style={imageStyle}/>
         </>
     )
 }
